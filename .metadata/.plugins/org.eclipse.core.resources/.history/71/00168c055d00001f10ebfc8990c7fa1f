@@ -1,0 +1,8 @@
+package handler;
+
+public class FileRemoveHandler {
+
+	// savePath, imageFileName 
+	
+	
+}

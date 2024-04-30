@@ -1,0 +1,40 @@
+package handler;
+
+import domain.PageingVO;
+
+public class PagingHandler {
+	
+	// list 하단에 나오는 페이지네이션 핸들링 클래스
+	
+	private int startPage; //현재 화면에서 보여줄 시작 페이지네이션 번호 1 11 21 31 ...
+	private int endPage; // 현재 화면에서 보여줄 끝 페이지네이션 번호 10, 20, 30 ... 
+	private int realEndPage; // 실제 전체 리스트의 마지막 페이지 번호
+	private boolean prev; // 이전 페이지의 존재 여부 확인 / 1page X / 11page 이후 O
+	private boolean next; // 다음 페이지의 존재 여부 확인 / realEndPage 나온상황에서는 X
+	
+	private PageingVO pgvo; // 파라미터로 현재 사용자가 클릭한 값을 파라미터로 받아오기
+	private int totalCount; // DB에서 검색해와야 함 >> 컨트롤러에서 파라미터로 받아와야 함
+	
+	public PagingHandler(PageingVO pgvo, int totalCount) {
+		this.pgvo = pgvo;
+		this.totalCount = totalCount;
+		
+		// 1~10 / 11~20 / 21~30
+		// pgvo 1 2 3 4 5 6 7 8 9 10 >> endpage 10
+		// pageNo / 10 => 0.1(올림) => 값 1 * 10 => 10
+		// pgvo 11 12 13 ... >> endpage 20
+		// pageNo / 10 => 1.1(올림) => 값 2 * 10 => 20
+		// 정수/정수 = 정수 >> 0.1 을 만들기 위해서는 형변환 필요 
+		this.endPage = (int)Math.ceil(pgvo.getPageNo() / (double)10)*10 ;
+		
+		this.startPage = this.endPage - 9;
+		
+		// 전체 게시글 수 / 한 화면에 표시되는 게시글 수
+		// 103 >> 103/10 = 10.3 => 11
+		this.realEndPage;
+		
+		// 이전, 다음 유무 체크
+		this.prev = this.startPage >1;
+		this.next = this.endPage < this.realEndPage;
+	}
+}

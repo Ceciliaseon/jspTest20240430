@@ -1,0 +1,25 @@
+package domain;
+
+public class BoardVO {
+/*
+ * create table board(
+bno int not null auto_increment,
+title varchar(100) not null,
+writer varchar(50) not null,
+content text,
+regdate datetime default now(),
+moddate datetime default now(),
+primary key(bno));
+*/
+	
+	private int bno;
+	private String title;
+	private String writer;
+	private String content;
+	private String regdate;
+	private String moddate;
+	
+	public BoardVO() {}
+	
+	public BoardVO()
+}

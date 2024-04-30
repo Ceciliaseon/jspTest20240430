@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+body{
+	margin: 30px;
+}
+.input{
+	outline: none;
+	border-radius: 1px;
+}

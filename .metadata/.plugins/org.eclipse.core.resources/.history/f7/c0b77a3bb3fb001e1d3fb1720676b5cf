@@ -1,0 +1,17 @@
+package orm;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class DatabaseBuilder {
+	private static SqlSession factory;
+	private static final String CONFIG="orm/mybatisConfig.xml";
+	
+	static {
+		try {
+			factory = new SqlSessionFactoryBuilder().build(CONFIG)
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

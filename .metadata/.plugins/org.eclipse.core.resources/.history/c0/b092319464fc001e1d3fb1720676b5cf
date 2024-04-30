@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원정보수정</h1>
+	
+	<form action="/memb/update" method="post">
+		<p>id : <input type="text" name="id" value="${ses.id }" readonly="readonly"> </p>
+		<p>pw : <input type="text" name="pwd" value="${ses.pwd }"> </p>
+		<p>email : <input type="text" name="email" value="${ses.email }"> </p>
+		<p>age : <input type="text" name="age" value="${ses.age }"> </p>
+		<p>phone : <input type="text" name="phone" value="${ses.phone }"> </p>
+		<p>regdate : <input type="text" name="regdate" value="${ses.regdate }" disabled="disabled">
+		<p>lastlogin : <input type="text" name="lastlogin" value="${ses.lastlogin }" disabled="disabled">
+		<button>수정</button>
+	</form>
+</body>
+</html>

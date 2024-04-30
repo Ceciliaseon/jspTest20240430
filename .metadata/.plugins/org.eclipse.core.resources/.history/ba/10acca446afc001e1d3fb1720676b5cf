@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Ezen 회원 List</h1>
+	
+	<table border="1">
+		<tr>
+			<th>id</th>
+			<th>pw</th>
+			<th>email</th>
+			<th>age</th>			
+			<th>phone</th>			
+		</tr>
+	</table>
+</body>
+</html>

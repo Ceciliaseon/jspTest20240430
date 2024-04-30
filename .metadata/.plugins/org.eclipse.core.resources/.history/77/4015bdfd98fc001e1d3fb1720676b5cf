@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body{
+	margin: 30px;
+}
+.input{
+	height : 20px;
+	outline: none;
+	border : 1px solid #ddd;
+	margin-right: 10px;
+}
+.btn{
+	outline: none;
+	
+}

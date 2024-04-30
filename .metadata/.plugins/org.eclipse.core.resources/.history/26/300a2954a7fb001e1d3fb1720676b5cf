@@ -1,0 +1,43 @@
+package domain;
+
+public class BoardVO {
+/*
+ * create table board(
+bno int not null auto_increment,
+title varchar(100) not null,
+writer varchar(50) not null,
+content text,
+regdate datetime default now(),
+moddate datetime default now(),
+primary key(bno));
+*/
+	
+	private int bno;
+	private String title;
+	private String writer;
+	private String content;
+	private String regdate;
+	private String moddate;
+	
+	public BoardVO() {}
+	
+	//insert 
+	public BoardVO(String title, String writer, String content) {
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+	}
+	// list
+	public BoardVO(int bno, String title, String writer, String regdate) {
+		this.bno = bno;
+		this.title = title;
+		this.writer = writer;
+		this.regdate = regdate;
+	}
+	//update
+	public BoardVO(int bno, String title, String content) {
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+	}
+}

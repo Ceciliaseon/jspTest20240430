@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body{
+	margin: 30px;
+}
+.box1{
+	margin-left: 20px;
+}
+.input{
+	height : 20px;
+	outline: none;
+	border : 1px solid #ddd;
+	
+}

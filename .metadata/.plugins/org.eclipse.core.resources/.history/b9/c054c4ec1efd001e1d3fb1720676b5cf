@@ -1,0 +1,28 @@
+package domain;
+
+public class CommentVO {
+	
+	private int cno; // 댓글번호
+	private int bno; // 게시글번호
+	private String writer; // 작성자
+	private String content; //댓글
+	private String regdate; // 작성일
+	
+	public CommentVO() {}
+	
+	//post : bno, writer, content
+	public CommentVO(int bno, String writer, String content) {
+		this.bno = bno;
+		this.writer = writer;
+		this.content = content;
+	}
+	
+	//modify : cno, content
+	public CommentVO(int cno, String content) {
+		this.cno = cno;
+		this.content = content;
+	}
+	//all
+	
+
+}

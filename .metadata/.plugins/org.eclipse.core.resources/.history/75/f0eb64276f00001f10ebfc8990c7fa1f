@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+
+	<insert id="add">
+		insert into board(title, writer, content, imageFile) values (#{title}, #{writer}, #{content}, #{imageFile})
+	</insert>
+
+	<select id="list" resultType="domain.BoardVO">
+		select * from board
+		<include refid="search"></include>
+		order by bno desc
+		limit #{pageStart}, #{qty}
+	</select>
+	
+	<select id="one" resultType="domain.BoardVO">
+		select * from board where bno=#{bno}
+	</select>
+	
+	<update id="update">
+		update board set title=#{title}, content=#{content}, moddate=now(), imageFile=#{imageFile} where bno=#{bno}
+	</update>
+	
+	<delete id="del">
+		delete from board where bno=#{bno}
+	</delete>
+	
+	<select id="writer" resultType="domain.BoardVO">
+		select * from board where writer=#{id}
+	</select>
+	
+	<select id="cnt" resultType="int">
+		select count(bno) from board
+		<include refid="search"></include>
+	</select>
+	
+	<!-- concat 함수 텍스트 이어붙이기 -->
+	<sql id="search">
+		<if test="type != null">
+			<trim prefix="where (" suffix=")">
+				<choose>
+					<when test="type=='t'.toString()">
+						title like concat('%',#{keyword},'%')
+					</when>
+					<when test="type == 'c'.toString()">
+						content like concat('%',#{keyword},'%')
+					</when>
+					<when test="type == 'w'.toString()">
+						writer like concat('%',#{keyword},'%')
+					</when>
+				</choose>
+			</trim>
+		</if>
+	</sql>
+	
+</mapper>

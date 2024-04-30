@@ -1,0 +1,9 @@
+package domain;
+
+public class CommentVO {
+	
+	private int cno;
+	priavet int bno;
+	
+
+}

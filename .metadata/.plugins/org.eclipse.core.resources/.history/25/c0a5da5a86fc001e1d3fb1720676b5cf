@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Board Detail Page</h1>
+	
+	<table>
+		<tr>
+			<td>num</td>
+			<td>${bvo.bno }</td>
+		</tr>
+		<tr>
+			<td>제목</td>
+			<td>${bvo.title }</td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td>${bvo.writer }</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td>${bvo.content }</td>
+		</tr>
+		<tr>
+			<td>작성일</td>
+			<td>${bvo.regdate }</td>
+		</tr>
+	</table>
+	
+	<a href="/brd/modify?bno=${bvo.bno}"><button type="button">수정</button></a>
+	<a href="/brd/delete?bno=${bvo.bno}"><button type="button">삭제</button></a>
+	<a href="/brd/list"><button type="button">list</button></a>
+</body>
+</html>
